@@ -1,6 +1,6 @@
-# SwiftVisionKit
+# SwiftOCRKit
 
-SwiftVisionKit is a lightweight, Apple-native Swift package that provides clean, async/await wrappers around Apple Vision for on-device OCR (Optical Character Recognition) on iOS and macOS.
+SwiftOCRKit is a lightweight, Apple-native Swift package that provides clean, async/await wrappers around Apple Vision for on-device OCR (Optical Character Recognition) on iOS and macOS.
 
 The goal of the library is to simplify Vision's text recognition APIs while keeping everything:
 
@@ -31,12 +31,12 @@ The goal of the library is to simplify Vision's text recognition APIs while keep
 
 ### Swift Package Manager
 
-Add SwiftVisionKit using Xcode:
+Add SwiftOCRKit using Xcode:
 
 1. **File → Add Packages**
 2. Enter the repository URL:
    ```
-   https://github.com/DrcKarim/SwiftVisionKit
+   https://github.com/DrcKarim/SwiftOCRKit
    ```
 3. Add the package to your target
 
@@ -44,7 +44,7 @@ Or add it to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/DrcKarim/SwiftVisionKit", from: "1.0.0")
+    .package(url: "https://github.com/DrcKarim/SwiftOCRKit", from: "1.0.0")
 ]
 ```
 
@@ -53,7 +53,7 @@ dependencies: [
 Import the library:
 
 ```swift
-import SwiftVisionKit
+import SwiftOCRKit
 ```
 
 ### Basic OCR Example
@@ -147,19 +147,19 @@ enum VisionOCRError: Error {
 
 ## Architecture
 
-SwiftVisionKit follows a clean, modular structure:
+SwiftOCRKit follows a clean, modular structure:
 
 ```
-SwiftVisionKit/
+SwiftOCRKit/
 └── OCR/
     ├── VisionOCR.swift               // Main OCR implementation
     ├── VisionOCRConfiguration.swift  // Configuration options
     └── VisionOCRError.swift          // Error types
 ```
 
-## Why SwiftVisionKit?
+## Why SwiftOCRKit?
 
-Apple Vision is powerful but verbose. SwiftVisionKit simplifies it into a clean, modern API.
+Apple Vision is powerful but verbose. SwiftOCRKit simplifies it into a clean, modern API.
 
 **Before (vanilla Vision):**
 ```swift
@@ -175,7 +175,7 @@ let handler = VNImageRequestHandler(cgImage: cgImage)
 try handler.perform([request])
 ```
 
-**After (SwiftVisionKit):**
+**After (SwiftOCRKit):**
 ```swift
 let text = try await VisionOCR.recognizeText(from: image)
 ```

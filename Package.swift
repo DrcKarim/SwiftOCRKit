@@ -5,25 +5,25 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftVisionKit",
+    name: "SwiftOCRKit",
     platforms: [
         .iOS(.v15),
         .macOS(.v12)
     ],
     products: [
         .library(
-            name: "SwiftVisionKit",
-            targets: ["SwiftVisionKit"]
+            name: "SwiftOCRKit",
+            targets: ["SwiftOCRKit"]
         )
     ],
     targets: [
         .target(
-            name: "SwiftVisionKit",
+            name: "SwiftOCRKit",
             dependencies: []
         ),
         .testTarget(
-            name: "SwiftVisionKitTests",
-            dependencies: ["SwiftVisionKit"]
+            name: "SwiftOCRKitTests",
+            dependencies: ["SwiftOCRKit"]
         )
     ]
 )

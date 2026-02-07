@@ -10,14 +10,11 @@ import Vision
 public enum VisionFaceDetection {
 
     /// Detects faces in a CGImage using Apple Vision.
-    public static func detectFaces(
-        from cgImage: CGImage
-    ) async throws -> [DetectedFace] {
-
+    public static func detectFaces(from cgImage: CGImage) async throws -> [DetectedFace] {
         try await withCheckedThrowingContinuation { continuation in
 
             let request = VNDetectFaceRectanglesRequest { request, error in
-                if let error = error {
+                if let error {
                     continuation.resume(
                         throwing: VisionFaceDetectionError.visionError(error)
                     )
@@ -25,13 +22,6 @@ public enum VisionFaceDetection {
                 }
 
                 let observations = request.results as? [VNFaceObservation] ?? []
-
-                if observations.isEmpty {
-                    continuation.resume(
-                        throwing: VisionFaceDetectionError.noFacesFound
-                    )
-                    return
-                }
 
                 let faces = observations.map {
                     DetectedFace(boundingBox: $0.boundingBox)
@@ -45,11 +35,11 @@ public enum VisionFaceDetection {
             do {
                 try handler.perform([request])
             } catch {
-//                continuation.resume(
-//                    throwing: VisionFaceDetectionError.visionError(error)
-//                )
-                print("Vision handler facedetection error: \(error)")
+                continuation.resume(
+                    throwing: VisionFaceDetectionError.visionError(error)
+                )
             }
         }
     }
+
 }

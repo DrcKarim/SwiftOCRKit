@@ -210,4 +210,5 @@ Please keep changes focused and consistent with the existing API style.
 ## License
 
 MIT License  
-Copyright (c) 2026 Karim Bouchaane
+Copyright (c) 2026
+**Made with ❤️ by [Karim Bouchaane](https://github.com/DrcKarim)**

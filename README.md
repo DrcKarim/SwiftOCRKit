@@ -73,6 +73,22 @@ let text = try await VisionOCR.recognizeText(from: cgImage)
 print(text)
 ```
 
+## Object Detection
+
+Detect objects in images using Apple Vision.
+
+### Example (iOS / macOS)
+
+```swift
+import SwiftVisionKit
+
+let objects = try await VisionObjectDetection.detectObjects(from: image)
+
+for object in objects {
+    print(object.label, object.confidence)
+}
+```
+
 ## Configuration
 
 You can customize OCR behavior using `VisionOCRConfiguration`:

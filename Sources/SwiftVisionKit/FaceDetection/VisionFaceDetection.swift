@@ -45,9 +45,10 @@ public enum VisionFaceDetection {
             do {
                 try handler.perform([request])
             } catch {
-                continuation.resume(
-                    throwing: VisionFaceDetectionError.visionError(error)
-                )
+//                continuation.resume(
+//                    throwing: VisionFaceDetectionError.visionError(error)
+//                )
+                print("Vision handler facedetection error: \(error)")
             }
         }
     }

@@ -52,9 +52,10 @@ public enum VisionAnimalDetection {
             do {
                 try handler.perform([request])
             } catch {
-                continuation.resume(
-                    throwing: VisionAnimalDetectionError.visionError(error)
-                )
+           //     continuation.resume(
+            //        throwing: VisionAnimalDetectionError.visionError(error)
+            //    )
+                print("Vision animaldetection handler error: \(error)")
             }
         }
     }
